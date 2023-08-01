@@ -4,4 +4,4 @@ HEIGHT = 400
 # board dimsension
 ROWS = 8
 COLS = 8
-SQSIZE = WIDTH // COLS 
+SQSIZE = WIDTH // COLS

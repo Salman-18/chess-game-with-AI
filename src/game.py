@@ -1,9 +1,9 @@
 import pygame
 from const import *
-from board import board
+from board import Board
 class Game:
     def __init__(self):
-        self.board = board()
+        self.board = Board()
     # show method
     def show_bg(self, surface):
         for  row in  range(ROWS):
@@ -18,11 +18,11 @@ class Game:
         for row in range(ROWS):
             for col in range(COLS):
                 # pieces ?
-                if self.board.sqaure[row][col].has_pieces():
-                    piece = self.board.square[row][col].piece
+                if self.board.squares[row][col].has_piece():
+                    piece = self.board.squares[row][col].piece
+                    
                     img = pygame.image.load(piece.texture) 
                     img_center = col * SQSIZE + SQSIZE // 2, row * SQSIZE + SQSIZE // 2
-                    piece.texture_react = img.get.rect(center = img_center)
-                    surface.blit(img, piece.texture_react)
-
+                    piece.texture_rect = img.get.rect(center=img_center)
+                    surface.blit(img, piece.texture_rect)
 
