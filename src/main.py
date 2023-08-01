@@ -9,7 +9,7 @@ class Main:
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption("Chess")
         self.game = Game()
-        
+
     def mainloop(self):
         screen = self.screen
         game = self.game
