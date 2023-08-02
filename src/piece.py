@@ -1,4 +1,4 @@
-import os
+#import os
 class Piece:
     def __init__(self, name, color, value, texture = None, texture_rect=None):
         self.name = name
@@ -11,8 +11,9 @@ class Piece:
         self.set_texture()
         self.texture_rect = texture_rect
     def set_texture(self, size=80):
-        self.texture = os.path.join(
-            f'assets/images/imgs-{size}px/{self.color}_{self.name}.png')
+        #self.texture = os.path.join(
+          #  f'assets/images/imgs-{size}px/{self.color}_{self.name}.png')
+        self.texture = f'D:/chess game with AI/src/assets/images/imgs-{size}px/{self.color}_{self.name}.png'
     def add_moves(self, move):
         self.moves.append(move)
 class Pawn(Piece):

@@ -23,6 +23,6 @@ class Game:
                     
                     img = pygame.image.load(piece.texture) 
                     img_center = col * SQSIZE + SQSIZE // 2, row * SQSIZE + SQSIZE // 2
-                    piece.texture_rect = img.get.rect(center=img_center)
+                    piece.texture_rect = img.get_rect(center=img_center)
                     surface.blit(img, piece.texture_rect)
 
