@@ -18,7 +18,7 @@ class Main:
             game.show_pieces(screen)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()  # Add parentheses here
+                    pygame.quit() 
                     sys.exit()
             pygame.display.update()
 

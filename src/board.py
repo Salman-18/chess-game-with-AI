@@ -15,10 +15,6 @@ class Board:
 
     def __add_pieces(self, color):
       row_pawn, row_other = (6, 7) if color == "white" else (1, 0)
-         #if color == "white":
-         #   row_pawn, other_row = (6,7)
-        #else:
-         #   row_pawn, other_row = (1,0)
       #pawn
       for col in range(COLS):
           self.squares[row_pawn][col] = Square(row_pawn, col, Pawn(color))

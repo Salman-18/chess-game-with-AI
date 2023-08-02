@@ -26,10 +26,10 @@ class Pawn(Piece):
          #   self.dir = 1    
 class Knight(Piece):
     def __init__(self, color):
-        super().__init__("knight", color, 3.0)
+        super().__init__("knight", color, 3.0001)
 class Bishop(Piece):
     def __init__(self, color):
-        super().__init__("bishop", color, 3.0001)
+        super().__init__("bishop", color, 3.0)
 
 class Rook(Piece):
     def __init__(self, color):
@@ -40,7 +40,7 @@ class Queen(Piece):
         super().__init__("queen", color, 9.0)
 class King(Piece):
     def __init__(self, color):
-        super().__init__("king", color, 100000000000000000.0)
+        super().__init__("king", color, 1000000000000000000000.0)
 
 
 

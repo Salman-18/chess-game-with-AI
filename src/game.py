@@ -14,6 +14,7 @@ class Game:
                     color = (119, 154, 88) # Dark Green
                 rect = (col * SQSIZE, row * SQSIZE, SQSIZE, SQSIZE)
                 pygame.draw.rect(surface, color, rect)
+    # show pieces method 
     def show_pieces(self, surface):
         for row in range(ROWS):
             for col in range(COLS):
