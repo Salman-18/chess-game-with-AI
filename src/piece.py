@@ -40,7 +40,7 @@ class Queen(Piece):
         super().__init__("queen", color, 9.0)
 class King(Piece):
     def __init__(self, color):
-        super().__init__("king", color, 10000.0)
+        super().__init__("king", color, 100000000000000000.0)
 
 
 
