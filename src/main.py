@@ -40,6 +40,7 @@ class Main:
                         # show method
                         game.show_bg(screen)
                         game.show_moves(screen)
+                        game.show_pieces(screen)
 
 
                 # Mouse motion 

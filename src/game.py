@@ -35,10 +35,14 @@ class Game:
         if self.dragger.dragging:
             piece = self.dragger.piece
             # loop all valid move
-            for move in piece.move:
+            for move in piece.moves:
                 # color
                 color = "#C86464" if (move.final.row + move.final.col) % 2 == 0 else "#C84646"
+                #if move.final.row + move.final.col % 2 == 0:
+                 #   color = "#C86464"
+                #else:
+                 #   "#C84646"
                 # rect 
-                rect = (move.final.col * SQSIZE, move.final.row * SQSIZE, SQSIZE,SQSIZE)
+                rect = (move.final.col * SQSIZE, move.final.row * SQSIZE, SQSIZE, SQSIZE)
                 # blit
                 pygame.draw.rect(surface, color, rect) 
