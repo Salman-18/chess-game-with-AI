@@ -85,13 +85,52 @@ class Board:
                 # not in range
                 else:
                     break
-        
-        if isinstance(piece, Pawn):pawn_moves()
-        elif isinstance(piece, Knight):knight_moves()
-        elif isinstance(piece, Bishop):pass 
-        elif isinstance(piece, Rook):pass 
-        elif isinstance(piece, Queen):pass 
-        elif isinstance(piece, King):pass 
+        def straightline_moves(incrs):
+            for incr in incrs:
+                row_incr, col_incr = incr
+                possible_move_row = row + row_incr
+                possible_move_col = col + col_incr
+                #while True
+                if Square.in_range(possible_move_row, possible_move_col):
+                  # empty
+                  if self.squares[possible_move_row][possible_move_col].isempty():
+                      pass
+                  # has enemy piece
+                  if self.squares[possible_move_row][possible_move_col].has_enemy_piece(piece.color):
+                      pass
+
+        if isinstance(piece, Pawn):
+            pawn_moves()
+        elif isinstance(piece, Knight):
+            knight_moves()
+        elif isinstance(piece, Bishop):
+            straightline_moves([
+                (-1,1), # up right
+                (-1,-1), # up-left
+                (1,1), # down-right
+                (1,-1) # down-left
+                ])
+        elif isinstance(piece, Rook):
+            straightline_moves([
+                (-1,0), # up
+                (0,1), # left
+                (1,0), # down
+                (0,-1) # right
+                ])
+        elif isinstance(piece, Queen):
+            straightline_moves([
+                (-1,1), # up right
+                (-1,-1), # up-left
+                (1,1), # down-right
+                (1,-1), # down-left
+                (-1,0), # up
+                (0,1), # left
+                (1,0), # down
+                (0,-1) # right
+
+            ])
+        elif isinstance(piece, King):
+            pass 
 
 
     def _create(self):
@@ -104,7 +143,7 @@ class Board:
       #pawn
       for col in range(COLS):
           self.squares[row_pawn][col] = Square(row_pawn, col, Pawn(color))
-          self.squares[5][0] = Square(5, 0, Pawn(color))
+          self.squares[5][1] = Square(5, 1, Pawn(color))
     #Knight 
       self.squares[row_other][1] = Square(row_other, 1, Knight(color))
       self.squares[row_other][6] = Square(row_other, 6, Knight(color)) 
