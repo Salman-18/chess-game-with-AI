@@ -23,7 +23,7 @@ class Board:
              #   steps = 2
              # vertical Move
             start = row + piece.dir
-            end = row + (piece.dir * (1 + steps ))
+            end = row + (piece.dir * (1 + steps))
             for possible_move_row in range(start, end, piece.dir): 
                 if Square.in_range(possible_move_row):
                     if self.squares[possible_move_row][col].isempty():
@@ -48,6 +48,7 @@ class Board:
                         if self.squares[possible_move_row][possible_move_col].has_enemy_piece(piece.color):
                             # create initial and final squares
                             initial = Square(row, col)
+                            final_piece = self.squares[possible_move_row][possible_move_col].piece
                             final = Square(possible_move_row, possible_move_col)
                             # create a new move
                             move = Move(initial, final)
@@ -74,6 +75,7 @@ class Board:
                     if self.squares[possible_move_row][possible_move_col].isempty_or_enemy(piece.color):
                         # create new move
                         initial = Square(row, col)
+                        final_piece = self.squares[possible_move_row][possible_move_col].piece
                         final = Square(possible_move_row, possible_move_col) # piece = piece
                         move = Move(initial, final)
                         # append new valid move
