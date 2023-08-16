@@ -48,11 +48,13 @@ class Board:
                         if self.squares[possible_move_row][possible_move_col].has_enemy_piece(piece.color):
                             # create initial and final squares
                             initial = Square(row, col)
-                            final_piece = self.squares[possible_move_row][possible_move_col].piece
                             final = Square(possible_move_row, possible_move_col)
-                            # create a new move
+                            
+                            #final_piece = self.squares[possible_move_row][possible_move_col].piece
+                            # create new move
                             move = Move(initial, final)
-                            # append new move 
+
+                            # new move 
                             piece.add_move(move)
                             
                                                  
@@ -75,7 +77,7 @@ class Board:
                     if self.squares[possible_move_row][possible_move_col].isempty_or_enemy(piece.color):
                         # create new move
                         initial = Square(row, col)
-                        final_piece = self.squares[possible_move_row][possible_move_col].piece
+                        #final_piece = self.squares[possible_move_row][possible_move_col].piece
                         final = Square(possible_move_row, possible_move_col) # piece = piece
                         move = Move(initial, final)
                         # append new valid move
@@ -97,7 +99,7 @@ class Board:
                     # create squares of new move
                         initial = Square(row, col)
                         final = Square(possible_move_row, possible_move_col)
-                    # create possible a move
+                    # create possible new move
                         move = Move(initial, final)
 
                     # empty = continue looping
@@ -140,6 +142,7 @@ class Board:
                         # append new valid move
                         piece.add_move(move) 
             # castling moves
+
             # queen castling
             # king castling
 
@@ -186,7 +189,8 @@ class Board:
       row_pawn, row_other = (6, 7) if color == "white" else (1, 0)
       #pawn
       for col in range(COLS):
-          self.squares[row_pawn][col] = Square(row_pawn, col, Pawn(color))
+          self.squares[row_pawn][col] = Square(row_pawn, col, Pawn(color)) 
+          
           
     #Knight 
       self.squares[row_other][1] = Square(row_other, 1, Knight(color))
@@ -201,8 +205,10 @@ class Board:
 
     #Queen
       self.squares[row_other][3] = Square(row_other, 3, Queen(color))
+      
     
     #King 
       self.squares[row_other][4] = Square(row_other, 4, King(color))
+      
       
       
