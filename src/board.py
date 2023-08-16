@@ -5,9 +5,28 @@ from move import Move
 class Board:
     def __init__(self):
        self.squares = [[0, 0, 0, 0, 0, 0, 0, 0] for  col in range(COLS)]
+       self.last_moves = None
        self._create()
        self.__add_pieces("white")
        self.__add_pieces("black")
+
+    def move(self, piece, move):
+        initial = move.initial
+        final = move.final
+
+        # console board move update 
+        self.squares[initial.row][initial.col].piece = None
+        self.squares[final.row][final.col].piece = piece
+
+        # move 
+        piece.moved = True
+        # clear valid move
+        piece.clear_moves()
+        self.last_moves = move
+
+    def valid_move(self, piece, move):
+        return move in piece.moves
+
      
     def calc_moves(self, piece, row, col):
 
@@ -82,12 +101,7 @@ class Board:
                         move = Move(initial, final)
                         # append new valid move
                         piece.add_move(move) 
-                    # blocked
-                    else:
-                        break
-              #  not in range
-                else:
-                    break
+                    
         def straightline_moves(incrs):
         
             for incr in incrs:
