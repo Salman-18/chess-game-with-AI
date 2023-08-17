@@ -22,7 +22,8 @@ class Board:
         piece.moved = True
         # clear valid move
         piece.clear_moves()
-        self.last_moves = move
+        # set last move
+        self.last_move = move
 
     def valid_move(self, piece, move):
         return move in piece.moves
@@ -53,9 +54,10 @@ class Board:
                         move = Move(initial, final)
                         # append new move
                         piece.add_move(move)
+                    
                     # blocked
                     else:
-                        break
+                      break
                   # not in range
                 else: 
                     break    
@@ -75,7 +77,8 @@ class Board:
 
                             # new move 
                             piece.add_move(move)
-                            
+                       
+                    
                                                  
         def knight_moves():
           
@@ -136,7 +139,7 @@ class Board:
         def king_moves():
             adj = [
                 (row-1, col+0), # up
-                (row-1, col+1), # up right
+                (row-1, col+1), # upght
                 (row+0, col+1), # right
                 (row+1, col+1), # down-right
                 (row+1, col+0), # down

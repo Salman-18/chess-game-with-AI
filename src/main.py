@@ -62,9 +62,9 @@ class Main:
                         released_col = dragger.mouseX // SQSIZE
                         
                         # create possible move 
-                        inital = Square(dragger.initial_row, dragger.initial_col)
+                        initial = Square(dragger.initial_row, dragger.initial_col)
                         final = Square(released_row, released_col)
-                        move = Move(inital, final)
+                        move = Move(initial, final)
                         
                         # valid move ?
                         if board.valid_move(dragger.piece, move):
