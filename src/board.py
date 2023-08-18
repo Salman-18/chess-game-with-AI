@@ -5,7 +5,7 @@ from move import Move
 class Board:
     def __init__(self):
        self.squares = [[0, 0, 0, 0, 0, 0, 0, 0] for  col in range(COLS)]
-       self.last_moves = None
+       self.last_move = None
        self._create()
        self.__add_pieces("white")
        self.__add_pieces("black")
@@ -77,7 +77,9 @@ class Board:
 
                             # new move 
                             piece.add_move(move)
-                       
+                        else:
+                            True
+                      
                     
                                                  
         def knight_moves():
@@ -104,6 +106,7 @@ class Board:
                         move = Move(initial, final)
                         # append new valid move
                         piece.add_move(move) 
+                    
                     
         def straightline_moves(incrs):
         
