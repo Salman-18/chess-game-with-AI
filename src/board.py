@@ -77,8 +77,7 @@ class Board:
 
                             # new move 
                             piece.add_move(move)
-                        else:
-                            True
+                    
                       
                     
                                                  
