@@ -54,7 +54,6 @@ class Board:
                         move = Move(initial, final)
                         # append new move
                         piece.add_move(move)
-                    
                     # blocked
                     else:
                       break
@@ -70,11 +69,9 @@ class Board:
                             # create initial and final squares
                             initial = Square(row, col)
                             final = Square(possible_move_row, possible_move_col)
-                            
                             #final_piece = self.squares[possible_move_row][possible_move_col].piece
                             # create new move
                             move = Move(initial, final)
-
                             # new move 
                             piece.add_move(move)
                     
