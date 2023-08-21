@@ -74,7 +74,7 @@ class Board:
                             move = Move(initial, final)
                             # new move 
                             piece.add_move(move)
-                    
+                   
                       
                     
                                                  
@@ -132,6 +132,8 @@ class Board:
                     # not in range
                     else:
                         break
+
+                
                     # increamenting incrs
                     possible_move_row = possible_move_row + row_incr
                     possible_move_col = possible_move_col + col_incr
