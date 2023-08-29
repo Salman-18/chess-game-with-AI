@@ -1,7 +1,6 @@
 import pygame
 import sys
-
-from const import *
+from const import * 
 from game import Game
 from square import Square
 from move import Move
