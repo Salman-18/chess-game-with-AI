@@ -3,11 +3,13 @@ from square import Square
 from piece import *
 from move import Move
 from sound import Sound
+from check import Check
 import copy 
 class Board:
     def __init__(self):
        self.squares = [[0, 0, 0, 0, 0, 0, 0, 0] for  col in range(COLS)]
        self.last_move = None
+       self.check = Check()
        self._create()
        self.__add_pieces("white")
        self.__add_pieces("black")
@@ -34,7 +36,7 @@ class Board:
     
                 # pawn promotion
                 else:
-                    self.check_promotion(piece, final)
+                    self.check_promotion(piece, final, testing)
                     
                 
         # king castling
@@ -56,9 +58,18 @@ class Board:
     def valid_move(self, piece, move):
         return move in piece.moves
     
-    def check_promotion(self, piece, final):
-        if final.row == 0 or final.row == 7:
-            self.squares[final.row][final.col].piece = Queen(piece.color)
+    def check_promotion(self, piece, final, testing):
+        if not testing:
+            if final.row == 0 or final.row == 7:
+                pi = self.check.drop_down()
+                if str(pi) == "Queen":
+                    self.squares[final.row][final.col].piece = Queen(piece.color)
+                elif str(pi) == "Knight":
+                    self.squares[final.row][final.col].piece = Knight(piece.color)
+                elif str(pi) == "Bishop":
+                    self.squares[final.row][final.col].piece = Bishop(piece.color)
+                elif str(pi) == "Rook":
+                    self.squares[final.row][final.col].piece = Rook(piece.color)
             
     
     def castling(self, initial, final):
