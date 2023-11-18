@@ -1,3 +1,13 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -6,6 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Add your build and test steps here
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -13,17 +24,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd ${{ github.workspace }}
           python -m pip install --upgrade pip
-          pip install -r requirements/requirements.txt
+          pip install -r requirements.txt
 
       - name: Run tests
         run: |
-          cd ${{ github.workspace }}
           python -m pytest
 
-
-    - name: Run tests
-      run: |
-        python -m pytest
 
