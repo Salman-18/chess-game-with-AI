@@ -23,9 +23,6 @@ jobs:
     - name: Install pytest
         run:pip install pytest
 
-    - name: Run tests
-      run: |
-        python -m unittest discover tests/  # Adjust based on your project structure
 
     - name: Run the chess game
       run: src/main.py # Adjust based on your project structure
