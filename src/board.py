@@ -22,7 +22,7 @@ class Board:
         self.squares[initial.row][initial.col].piece = None
         self.squares[final.row][final.col].piece = piece
 
-        
+        # ADD COMMENT 
         if isinstance(piece, Pawn):
                   # en passant captured:
                 diff = final.col - initial.col 
