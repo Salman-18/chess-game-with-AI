@@ -44,6 +44,7 @@ jobs:
               release = repo.create_git_release(
                   tag=os.environ.get('GITHUB_REF'),
                   name=os.environ.get('GITHUB_REF'),
+                  message="Release created via GitHub Actions",
                   draft=True  # Set draft to True to create a draft release
               )
 
